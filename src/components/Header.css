@@ -1,0 +1,165 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  min-height: var(--header-h);
+  display: flex;
+  align-items: center;
+  background: rgba(255, 253, 251, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.header--scrolled {
+  background: rgba(255, 253, 251, 0.94);
+  box-shadow: var(--shadow-sm);
+  border-bottom-color: var(--color-pink-deep);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+}
+
+.header__brand {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 0.4rem 0.95rem;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 253, 251, 0.85) 0%,
+    rgba(247, 230, 236, 0.65) 100%
+  );
+  box-shadow: 0 2px 14px rgba(181, 58, 91, 0.07);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.header__brand:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 18px rgba(181, 58, 91, 0.11);
+}
+
+.header__logo {
+  height: clamp(56px, 8.5vw, 78px);
+  width: auto;
+  max-width: min(220px, 48vw);
+  object-fit: contain;
+  /* Integra el fondo blanco del PNG con el header crema */
+  mix-blend-mode: multiply;
+  filter: contrast(1.08) saturate(1.12);
+}
+
+.header__nav {
+  display: flex;
+  gap: 2rem;
+  margin-left: auto;
+}
+
+.header__link {
+  font-size: 0.96rem;
+  font-weight: 400;
+  color: var(--color-ink);
+  position: relative;
+  padding: 0.3rem 0;
+  transition: color 0.2s ease;
+}
+
+.header__link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1.5px;
+  background: var(--color-gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.28s ease;
+}
+
+.header__link:hover {
+  color: var(--color-rose);
+}
+
+.header__link:hover::after {
+  transform: scaleX(1);
+}
+
+.header__burger {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--color-rose);
+  cursor: pointer;
+  padding: 0.3rem;
+}
+
+.header__burger-icon {
+  width: 30px;
+  height: 30px;
+}
+
+/* --- Menú móvil --- */
+.header__mobile {
+  position: fixed;
+  top: var(--header-h);
+  left: 0;
+  right: 0;
+  background: var(--color-cream);
+  border-bottom: 1px solid var(--color-pink-deep);
+  box-shadow: var(--shadow-md);
+  padding: 1.4rem clamp(1.1rem, 4vw, 2.5rem) 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  transform: translateY(-140%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.header__mobile.is-open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.header__mobile-nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.header__mobile-link {
+  padding: 0.85rem 0.2rem;
+  font-size: 1.1rem;
+  color: var(--color-ink);
+  border-bottom: 1px solid var(--color-pink);
+}
+
+.header__mobile-link:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 860px) {
+  .header__nav {
+    display: none;
+  }
+  .header__burger {
+    display: inline-flex;
+  }
+  .header__brand {
+    padding: 0.35rem 0.7rem;
+  }
+
+  .header__logo {
+    height: 52px;
+    max-width: 168px;
+  }
+}

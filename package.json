@@ -1,0 +1,21 @@
+{
+  "name": "nails-boutique-puebla",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Landing page for Nails Boutique Puebla - especialistas en cristal Swarovski",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "sharp": "^0.35.3",
+    "vite": "^5.4.11"
+  }
+}

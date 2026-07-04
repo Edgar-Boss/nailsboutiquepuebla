@@ -1,0 +1,101 @@
+.booking {
+  background: var(--color-cream);
+}
+
+.booking__card {
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+  padding: clamp(2.4rem, 6vw, 4rem) clamp(1.4rem, 5vw, 3.5rem);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(155deg, var(--color-white) 0%, var(--color-pink) 120%);
+  border: 1px solid var(--color-pink-deep);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.booking__card::after {
+  content: '';
+  position: absolute;
+  inset: -40% -20% auto auto;
+  width: 55%;
+  aspect-ratio: 1;
+  background: radial-gradient(circle, var(--color-gold-light), transparent 70%);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.booking__badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  background: var(--color-white);
+  color: var(--color-gold);
+  font-size: 0.76rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 1.4rem;
+}
+
+.booking__badge-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.booking__title {
+  position: relative;
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
+  color: var(--color-rose);
+  margin-bottom: 1rem;
+}
+
+.booking__text {
+  position: relative;
+  color: var(--color-ink-soft);
+  font-size: 1.05rem;
+  max-width: 52ch;
+  margin: 0 auto 2rem;
+}
+
+.booking__cta {
+  position: relative;
+}
+
+.booking__steps {
+  position: relative;
+  list-style: none;
+  padding: 0;
+  margin: 2.6rem auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 2rem;
+  max-width: 620px;
+}
+
+.booking__steps li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  color: var(--color-ink);
+}
+
+.booking__step-num {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--color-rose);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  flex: 0 0 auto;
+}

@@ -1,0 +1,213 @@
+/* ==========================================================================
+   Nails Boutique · Estilos globales
+   Paleta: rosa claro, blanco, nude y dorado suave.
+   ========================================================================== */
+
+:root {
+  /* Colores de marca */
+  --color-rose: #b53a5b; /* rosa vino del logo */
+  --color-rose-soft: #d98ba3;
+  --color-pink: #f7e6ec; /* rosa claro de fondo */
+  --color-pink-deep: #f2d4de;
+  --color-nude: #f3e4da;
+  --color-gold: #c9a86a; /* dorado suave */
+  --color-gold-light: #e6d3ab;
+  --color-cream: #fffdfb;
+  --color-white: #ffffff;
+  --color-ink: #3a2b30; /* texto oscuro cálido */
+  --color-ink-soft: #6f5f64;
+  --color-whatsapp: #25d366;
+
+  /* Tipografías */
+  --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
+  --font-body: 'Poppins', system-ui, -apple-system, sans-serif;
+
+  /* Sombras suaves */
+  --shadow-sm: 0 4px 14px rgba(181, 58, 91, 0.08);
+  --shadow-md: 0 12px 30px rgba(181, 58, 91, 0.12);
+  --shadow-lg: 0 22px 48px rgba(181, 58, 91, 0.16);
+
+  /* Radios */
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+
+  /* Layout */
+  --maxw: 1180px;
+  --header-h: 86px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background: var(--color-cream);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* --- Utilidades de layout --- */
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 clamp(1.1rem, 4vw, 2.5rem);
+}
+
+.section {
+  padding: clamp(3.5rem, 8vw, 6rem) 0;
+}
+
+.section-head {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto clamp(2rem, 5vw, 3.2rem);
+}
+
+.section-eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--color-rose);
+}
+
+.section-subtitle {
+  margin-top: 0.9rem;
+  color: var(--color-ink-soft);
+  font-size: 1.02rem;
+}
+
+/* --- Botones --- */
+.btn {
+  --btn-bg: var(--color-rose);
+  --btn-fg: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.98rem;
+  border: none;
+  cursor: pointer;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease,
+    opacity 0.25s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn--whatsapp {
+  --btn-bg: var(--color-whatsapp);
+  --btn-fg: #fff;
+}
+
+.btn--gold {
+  --btn-bg: linear-gradient(120deg, var(--color-gold), var(--color-gold-light));
+  --btn-fg: #4a3a1e;
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--color-rose);
+  border: 1.5px solid var(--color-rose);
+  box-shadow: none;
+}
+
+.btn--outline:hover {
+  background: var(--color-rose);
+  color: #fff;
+}
+
+.btn--lg {
+  padding: 1.05rem 2.2rem;
+  font-size: 1.06rem;
+}
+
+.btn__icon {
+  width: 1.2em;
+  height: 1.2em;
+  flex: 0 0 auto;
+}
+
+/* --- Animaciones sutiles de entrada --- */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+}
+
+.reveal.is-visible {
+  animation: fadeUp 0.7s ease forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal,
+  .reveal.is-visible {
+    opacity: 1;
+    animation: none;
+  }
+  .btn:hover {
+    transform: none;
+  }
+}

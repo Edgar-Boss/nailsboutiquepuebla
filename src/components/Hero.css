@@ -1,0 +1,131 @@
+.hero {
+  position: relative;
+  padding-top: calc(var(--header-h) + clamp(2rem, 6vw, 4rem));
+  padding-bottom: clamp(3rem, 8vw, 5.5rem);
+  background: radial-gradient(
+      1200px 600px at 85% -10%,
+      var(--color-pink) 0%,
+      transparent 60%
+    ),
+    linear-gradient(180deg, var(--color-cream) 0%, var(--color-pink) 100%);
+  overflow: hidden;
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-gold);
+  margin-bottom: 1.2rem;
+}
+
+.hero__eyebrow-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.hero__title {
+  font-size: clamp(2.4rem, 5.5vw, 4rem);
+  color: var(--color-rose);
+  margin-bottom: 1.1rem;
+}
+
+.hero__subtitle {
+  font-size: clamp(1.02rem, 2vw, 1.22rem);
+  color: var(--color-ink-soft);
+  max-width: 30ch;
+  margin-bottom: 2rem;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2.2rem;
+}
+
+.hero__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1.4rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--color-ink-soft);
+}
+
+.hero__media {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.hero__image-wrap {
+  position: relative;
+  z-index: 2;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 6px solid var(--color-white);
+  animation: fadeUp 0.9s ease both;
+  transition: transform 0.5s ease;
+}
+
+.hero__image-wrap:hover {
+  transform: translateY(-6px);
+}
+
+.hero__image {
+  width: 100%;
+  height: clamp(340px, 52vw, 560px);
+  object-fit: cover;
+  display: block;
+}
+
+.hero__glow {
+  position: absolute;
+  z-index: 1;
+  inset: auto -8% -14% auto;
+  width: 70%;
+  aspect-ratio: 1;
+  background: radial-gradient(
+    circle,
+    var(--color-gold-light) 0%,
+    transparent 68%
+  );
+  filter: blur(10px);
+  opacity: 0.7;
+}
+
+@media (max-width: 860px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero__subtitle {
+    max-width: none;
+  }
+  .hero__actions,
+  .hero__badges {
+    justify-content: center;
+  }
+  .hero__media {
+    order: -1;
+    margin-bottom: 1rem;
+  }
+  .hero__image {
+    height: clamp(300px, 70vw, 420px);
+  }
+}

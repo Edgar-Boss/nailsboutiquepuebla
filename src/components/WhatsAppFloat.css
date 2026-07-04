@@ -1,0 +1,79 @@
+.wa-float {
+  position: fixed;
+  right: clamp(1rem, 3vw, 1.8rem);
+  bottom: clamp(1rem, 3vw, 1.8rem);
+  z-index: 90;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem;
+  border-radius: 999px;
+  background: var(--color-whatsapp);
+  color: #fff;
+  box-shadow: 0 10px 26px rgba(37, 211, 102, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+}
+
+.wa-float:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 14px 32px rgba(37, 211, 102, 0.5);
+}
+
+.wa-float__icon {
+  width: 30px;
+  height: 30px;
+  flex: 0 0 auto;
+}
+
+.wa-float__label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 0;
+  transition: max-width 0.35s ease, opacity 0.3s ease, padding 0.3s ease;
+}
+
+.wa-float:hover .wa-float__label,
+.wa-float:focus-visible .wa-float__label {
+  max-width: 140px;
+  opacity: 1;
+  padding-right: 0.4rem;
+}
+
+.wa-float__pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: var(--color-whatsapp);
+  z-index: -1;
+  animation: wa-pulse 2.4s ease-out infinite;
+}
+
+@keyframes wa-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  70%,
+  100% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+}
+
+/* En móvil siempre mostramos la etiqueta para que se entienda el botón. */
+@media (max-width: 600px) {
+  .wa-float__label {
+    max-width: 120px;
+    opacity: 1;
+    padding-right: 0.3rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wa-float__pulse {
+    animation: none;
+  }
+}
