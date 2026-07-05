@@ -49,7 +49,7 @@ export default function Hero() {
           <div className="hero__image-wrap">
             <img
               src={heroImg}
-              alt="Diseño de uñas con cristales y acabado brillante"
+              alt="Uñas con cristal Swarovski sobre fondo rosa elegante"
               className="hero__image"
               loading="eager"
               fetchpriority="high"

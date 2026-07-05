@@ -75,6 +75,9 @@
 .hero__image-wrap {
   position: relative;
   z-index: 2;
+  width: 100%;
+  max-width: min(100%, 520px);
+  aspect-ratio: 1 / 1;
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
@@ -89,8 +92,9 @@
 
 .hero__image {
   width: 100%;
-  height: clamp(340px, 52vw, 560px);
+  height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
 }
 
@@ -125,7 +129,8 @@
     order: -1;
     margin-bottom: 1rem;
   }
-  .hero__image {
-    height: clamp(300px, 70vw, 420px);
+
+  .hero__image-wrap {
+    max-width: min(420px, 88vw);
   }
 }
